@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 
-@Document(collation = "urls")
+@Document(collection = "url")
 public class Url {
 
     @Id
