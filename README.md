@@ -1,9 +1,16 @@
 
 # URL Shortener Service
 
+<a href="https://www.linkedin.com/in/natalia-feitosa-cga-cfp" target="_blank" style="text-decoration:none">
+    <img src="https://img.shields.io/badge/LinkedIn-000000?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
+</a>
+
 ## Overview
 The URL Shortener Service is a back-end application that allows you to shorten long URLs to make them more compact and easier to share. This project is implemented using Java, MongoDB, and Docker.
 The original code was build by Build and Run channel with some adaptations for tests.
+
+## Link to the Front-End
+For more information about the front-end service, you can access the repository [here](https://github.com/tecnologiaefinancas/url-shortener-front).
 
 ## Example Usage
 To shorten a URL, make a POST request to the following endpoint:
