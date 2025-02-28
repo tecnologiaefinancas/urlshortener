@@ -14,7 +14,7 @@ public class Url {
 
     private String fullUrl;
 
-    @Indexed(expireAfter = "1")
+    @Indexed(expireAfter = "0")
     private LocalDateTime expiresAt;
 
     public Url(){}
