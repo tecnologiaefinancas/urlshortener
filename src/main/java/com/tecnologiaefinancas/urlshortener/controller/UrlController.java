@@ -1,8 +1,10 @@
 package com.tecnologiaefinancas.urlshortener.controller;
 
 import com.tecnologiaefinancas.urlshortener.controller.dto.ShortenUrlRequest;
+import com.tecnologiaefinancas.urlshortener.controller.dto.ShortenUrlResponse;
 import com.tecnologiaefinancas.urlshortener.entity.Url;
 import com.tecnologiaefinancas.urlshortener.repository.UrlRepository;
+import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +26,8 @@ public class UrlController {
 
 
     @PostMapping(value = "shorten-url")
-    public ResponseEntity<Void> shortenUrl(@RequestBody ShortenUrlRequest request) {
+    public ResponseEntity<ShortenUrlResponse> shortenUrl(@RequestBody ShortenUrlRequest request,
+                                            HttpServletRequest servletRequest) {
 
         String id;
 
@@ -34,7 +37,9 @@ public class UrlController {
 
         urlRepository.save(new Url(id, request.url(), LocalDateTime.now().plusMinutes(1)));
 
+        var redirectUrl = servletRequest.getRequestURL().toString().replace("shorten-url", id);
 
-        return ResponseEntity.ok().build();
+
+        return ResponseEntity.ok(new ShortenUrlResponse(redirectUrl));
     }
 }
